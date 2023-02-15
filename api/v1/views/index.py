@@ -26,6 +26,9 @@ def number_objects():
         num_objs[names[i]] = storage.count(classes[i])
 
     return jsonify(num_objs)
-
+@app_views.errorhandler(404)
+def page_not_found():
+    """ custom error handler page"""
+    return jsonify({"error": "Not found"}), 404
 if __name__ == '__main__':
     pass
